@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Extrudo</Name>
+  <Repository>ghcr.io/vyrnexis/extrudo-unraid:latest</Repository>
+  <Registry>https://github.com/Vyrnexis/extrudo-unraid/pkgs/container/extrudo-unraid</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Beta>True</Beta>
+  <Project>https://github.com/zoltanf/extrudo</Project>
+  <Support>https://github.com/Vyrnexis/extrudo-unraid/issues</Support>
+  <Overview><![CDATA[
+Unofficial Unraid packaging of Extrudo, a free and open-source parametric CAD application for 3D printing.
+
+Extrudo runs entirely in your browser. Designs are stored in that browser, not in an Unraid appdata volume, so export .extrudo backups regularly. Each hostname, protocol, port and browser has separate storage. HTTPS is recommended for full PWA, offline and browser-file functionality.
+  ]]></Overview>
+  <Category>Productivity: Tools:</Category>
+  <WebUI>http://[IP]:[PORT:8080]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/Vyrnexis/extrudo-unraid/main/templates/extrudo.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/zoltanf/extrudo/v0.6.1/apps/web/public/icon-512.png</Icon>
+  <ExtraParams>--log-opt max-size=10m --log-opt max-file=3</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires>A current desktop browser with WebGL2 and WebAssembly. HTTPS through a reverse proxy is recommended. Project data is browser-local and is not backed up by Unraid.</Requires>
+  <Config Name="Web UI Port" Target="8080" Default="8780" Mode="tcp" Description="Port used to open Extrudo in your browser." Type="Port" Display="always" Required="true" Mask="false">8780</Config>
+</Container>
