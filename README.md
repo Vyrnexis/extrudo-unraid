@@ -6,14 +6,22 @@ The image serves Extrudo's static web build. Modeling, project storage and WebAs
 
 ## Install on Unraid
 
-Until the template is accepted into Community Applications, add a container manually:
+Until Extrudo is accepted into Community Applications, install its template directly:
 
-- Repository: `ghcr.io/vyrnexis/extrudo-unraid:latest`
-- Network: `bridge`
-- Port: host `8780` to container `8080/tcp`
-- Web UI: `http://[IP]:[PORT:8080]/`
+1. Open **Terminal** in the Unraid web interface and download the template:
 
-No path mappings are needed. After the image has been published, the template at [`templates/extrudo.xml`](templates/extrudo.xml) provides the same configuration.
+   ```sh
+   curl -fsSL \
+     https://raw.githubusercontent.com/Vyrnexis/extrudo-unraid/main/templates/extrudo.xml \
+     -o /boot/config/plugins/dockerMan/templates-user/my-extrudo.xml
+   ```
+
+2. Open **Docker → Add Container**.
+3. Select **Extrudo** from the **User templates** section of the Template dropdown.
+4. Keep host port `8780`, or choose another unused port, and click **Apply**.
+5. When the container starts, click its icon and select **WebUI**.
+
+The template configures `ghcr.io/vyrnexis/extrudo-unraid:latest`, bridge networking, the icon, WebUI link and port mapping. No path mappings are needed.
 
 ## Project storage
 
