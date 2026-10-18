@@ -4,6 +4,8 @@ Unofficial container packaging of [Extrudo](https://github.com/zoltanf/extrudo),
 
 The image serves Extrudo's static web build. Modeling, project storage and WebAssembly execution happen in the user's browser; the container has no database, appdata directory, device access or privileged mode.
 
+The current image packages Extrudo **v0.8.0**.
+
 ## Install on Unraid
 
 Until Extrudo is accepted into Community Applications, install its template directly:
@@ -23,6 +25,8 @@ Until Extrudo is accepted into Community Applications, install its template dire
 
 The template configures `ghcr.io/vyrnexis/extrudo-unraid:latest`, bridge networking, the icon, WebUI link and port mapping. No path mappings are needed.
 
+For an existing installation, use **Docker → Check for Updates**, then apply the Extrudo update.
+
 ## Project storage
 
 Extrudo stores designs in IndexedDB and OPFS in each browser, not on the Unraid server. Consequently:
@@ -36,7 +40,7 @@ Export `.extrudo` backups regularly. This image does not add shared or server-si
 
 ## HTTPS
 
-Direct LAN HTTP access supports the core application with browser storage fallbacks. Use a stable HTTPS hostname through a reverse proxy for service workers, installable PWA support, OPFS and browser file APIs.
+Extrudo v0.8.0 fixes creating a new design over plain LAN HTTP. Direct HTTP access still uses browser storage fallbacks; use a stable HTTPS hostname through a reverse proxy for service workers, installable PWA support, OPFS and browser file APIs.
 
 The container reproduces Extrudo's upstream COOP, COEP, Content Security Policy and caching headers.
 
